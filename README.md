@@ -1,3 +1,4 @@
+ <img src="https://github.com/zeynepcircir/book-list/assets/81877446/10a9cb18-7174-46f3-a290-b160543819d5" alt="Image 3" width="100">
 # BookApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
