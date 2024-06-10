@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Books Library</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">My Library</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Settings</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div>
+    @for (category of categoriesButton; track $index) {
+    <button class="btn btn-outline-success" type="submit" (click)="filterCategory(category)">{{ category }}</button>
+    }
+</div>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</nav>
+
+<div class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="card-container">
+        @for (book of filteredData; track $index) {
+
+        <div class="card" style="width: 19rem;">
+            <div class="card-sides">
+                <div>
+                    <img class="image" src="../assets/book.jpg" alt="Book Cover">
+                </div>
+                <div class="card-body card-right">
+                    <h5 class="card-title">{{ book?.name }}</h5>
+                    <h4 class="card-title">{{ book?.author }}</h4>
+                    <app-star [starNumber]="book?.star"></app-star>
+                    <a href="#" class="btn btn-outline-dark" style="width: 110px; height: 40px;"
+                        (click)="addBasket(book)">Sepete Ekle</a>
+                </div>
+            </div>
+
+        </div>
+        }
+    </div>
+</div>
+
+<app-footer name="Zeynep" [company]="company" ></app-footer>
